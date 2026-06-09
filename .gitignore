@@ -1,0 +1,17 @@
+# data, indexes, runs, caches
+raw/
+data/
+corpus/
+faiss_index/
+output/
+*.index
+*.npz
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# generated outputs (not committed)
+RESULTS.md
