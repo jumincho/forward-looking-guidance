@@ -1,0 +1,93 @@
+{
+  "source_sha256": "9d36f2141a31c1a5dcc0c0c15b59973fef53043077dfcb8dae40cffb7f7bf3ce",
+  "sampling": {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 20,
+    "max_tokens": 512
+  },
+  "seeds": [
+    0,
+    1
+  ],
+  "scope": "question_candidates",
+  "dtype": "float16",
+  "batch_size": 32,
+  "memory_fraction": 0.82,
+  "max_model_len": 8192,
+  "retriever_device": "cpu",
+  "faiss_device": "cuda",
+  "model": {
+    "repository": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218"
+  },
+  "encoder": {
+    "repository": "facebook/contriever",
+    "revision": "2bd46a25019aeea091fd42d1f0fd4801675cf699"
+  },
+  "planning_seed": 42,
+  "planning_sampling": {
+    "2wikimultihopqa": {
+      "top_p": 0.95,
+      "top_k": 20
+    },
+    "hotpotqa": {
+      "top_p": 0.95,
+      "top_k": 20
+    },
+    "musique": {
+      "top_p": 0.95,
+      "top_k": 20
+    }
+  },
+  "encoder_batch_size": 16,
+  "max_iterations": 5,
+  "execution_sampling_fixed_in_source": true,
+  "remove_tp2_scheduler_kwargs": true,
+  "measured_runtime": {
+    "python": "3.12",
+    "torch": "2.6.0+cu118",
+    "vllm": "0.8.5+cu118",
+    "transformers": "4.51.3",
+    "numpy": "1.26.4",
+    "faiss": "1.10.0"
+  },
+  "aggregation": "canonical_fixed_seed_mean",
+  "postprocessing_sha256": {
+    "canonical_answer.py": "7dbb0cbe8b729e487d769312fcc6037c220b9cb8c6e06e7ae7ba72bae6f98a16"
+  },
+  "additional_model_calls_for_postprocessing": 0,
+  "metric_trials": 2,
+  "answer_voting": false,
+  "methods": [
+    "stride",
+    "stride_retrieval",
+    "stride_extraction",
+    "stride_reasoning",
+    "stride_fg"
+  ],
+  "tensor_parallel": 1,
+  "chunked_prefill": true,
+  "max_num_batched_tokens": 2048,
+  "methods_by_dataset": {
+    "2wikimultihopqa": [
+      "stride",
+      "stride_fg"
+    ],
+    "hotpotqa": [
+      "stride",
+      "stride_fg"
+    ],
+    "musique": [
+      "stride",
+      "stride_retrieval",
+      "stride_extraction",
+      "stride_reasoning",
+      "stride_fg"
+    ]
+  },
+  "sampling_seed_mode": "engine_default",
+  "index_title_repetitions": 1,
+  "candidate_group_size": 32,
+  "candidate_group_order": "sha256_id"
+}

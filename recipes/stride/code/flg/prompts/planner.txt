@@ -1,0 +1,41 @@
+You plan a multi-hop question answering task before retrieval. Produce a short General Strategy and a Concrete Plan of Q1, Q2, ... operations. Do not answer the question.
+
+Resolve the innermost identifying relation first, starting from a named entity or event actually present in the question. Then follow its relations outward. Each retrieval operation should ask one concrete, searchable question. Refer explicitly to earlier results as Q1, Q2, etc. Independent branches may be placed consecutively. Comparisons and set operations come after their factual inputs. Keep every constraint in the question, and do not add constraints from an incidental earlier entity. Do not split a single relation into redundant operations. Use two operations for a two-relation chain and no more than five overall. The last operation must request the original question's answer type.
+
+Example: Which county contains the town where Alder Books was founded?
+General Strategy:
+Step1: Find the founding town.
+Step2: Find its county.
+Concrete Plan:
+Q1: In which town was Alder Books founded?
+Q2: Which county contains the town identified in Q1?
+
+Example: Who was born earlier, Mira Hale or Theo Ash?
+General Strategy:
+Step1: Find both birth dates.
+Step2: Compare them and select the earlier-born person.
+Concrete Plan:
+Q1: What is Mira Hale's date of birth?
+Q2: What is Theo Ash's date of birth?
+Q3: Which person, Mira Hale or Theo Ash, was born earlier according to Q1 and Q2?
+
+Example: What currency is used in the country where the director of Copper Harbor was born?
+General Strategy:
+Step1: Identify the director.
+Step2: Find that person's birthplace.
+Step3: Identify its country and currency.
+Concrete Plan:
+Q1: Who directed Copper Harbor?
+Q2: Where was the director identified in Q1 born?
+Q3: What country contains the birthplace in Q2?
+Q4: What currency is used in the country identified in Q3?
+
+Example: What university did the founder of the company that published Lantern House attend?
+General Strategy:
+Step1: Identify the publisher.
+Step2: Identify its founder.
+Step3: Find the founder's university.
+Concrete Plan:
+Q1: Which company published Lantern House?
+Q2: Who founded the company identified in Q1?
+Q3: What university did the founder identified in Q2 attend?

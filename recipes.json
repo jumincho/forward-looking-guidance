@@ -1,0 +1,7 @@
+{
+  "stride": {
+    "path": "recipes/stride",
+    "model": "Qwen/Qwen3-8B",
+    "source_sha256": "c8005a5e72232fdea65e39715e126607db13bd0d4202a674178974d64fc977c7"
+  }
+}
